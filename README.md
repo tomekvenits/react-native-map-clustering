@@ -37,7 +37,7 @@ const INITIAL_REGION = {
 };
 
 const App = () => (
-  <MapView initialRegion={INITIAL_REGION} style={{ flex: 1 }}>
+  <MapView initialRegion={INITIAL_REGION} style={{ flex: 1 }} notToCluster={['dontClusterMe','dontClusterMeToo']}>
     <Marker coordinate={{ latitude: 52.4, longitude: 18.7 }} />
     <Marker coordinate={{ latitude: 52.1, longitude: 18.4 }} />
     <Marker coordinate={{ latitude: 52.6, longitude: 18.3 }} />
@@ -47,6 +47,8 @@ const App = () => (
     <Marker coordinate={{ latitude: 52.2, longitude: 21 }} />
     <Marker coordinate={{ latitude: 52.4, longitude: 21 }} />
     <Marker coordinate={{ latitude: 51.8, longitude: 20 }} />
+    <Marker key={'dontClusterMe'} coordinate={{ latitude: 52.6, longitude: 21.1 }} />
+    <Marker key={'dontClusterMeToo'} coordinate={{ latitude: 52.7, longitude: 21.1 }} />
   </MapView>
 );
 
@@ -80,7 +82,7 @@ export default App;
 | **spiralEnabled**                           | Bool                  | true                                         | Set true to enable and false to disable spiral view.                                                                                                                                                                            |
 | **renderCluster**                           | Function              | undefined                                    | Enables you to render custom cluster with custom styles and logic.                                                                                                                                                              |
 | **spiderLineColor**                         | String                | #FF0000                                      | Enables you to set color of spider line which joins spiral location with center location.                                                                                                                                       |
-
+| **notToCluster**                         | Array                | []                                      | Pass array of Markers keys to prevent markers being wrapped into cluster.
 ## How to animate to region?
 
 Full example of how to use `animateToRegion()`.
