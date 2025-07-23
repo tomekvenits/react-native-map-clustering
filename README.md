@@ -73,7 +73,7 @@ export default App;
 | **edgePadding**                             | Object                | { top: 50, left: 50, bottom: 50, right: 50 } | Edge padding for [react-native-maps's](https://github.com/react-community/react-native-maps/blob/master/docs/mapview.md#methods) `fitToCoordinates` method, called in `onClusterPress` for fitting to pressed cluster children. |
 | **animationEnabled**                        | Bool                  | true                                         | Animate imploding/exploding of clusters' markers and clusters size change. **Works only on iOS**.                                                                                                                               |
 | **layoutAnimationConf**                     | LayoutAnimationConfig | LayoutAnimation.Presets.spring               | `LayoutAnimation.Presets.spring`                                                                                                                                                                                                | Custom Layout animation configuration object for clusters animation during implode / explode **Works only on iOS**. |
-| **onRegionChangeComplete(region, markers)** | Function              | () => {}                                     | Called when map's region changes. In return you get current region and markers data.                                                                                                                                            |
+| **onRegionChangeComplete(region, details, markers)** | Function              | () => {}                                     | Called when map's region changes. In return you get current region & details & markers data.                                                                                                                                            |
 | **onMarkersChange(markers)**                | Function              | () => {}                                     | Called when markers change. In return you get markers data.                                                                                                                                                                     |
 | **superClusterRef**                         | MutableRefObject      | {}                                           | Return reference to `supercluster` library. You can read more about options it has [here.](https://github.com/mapbox/supercluster)                                                                                              |
 | **clusteringEnabled**                       | Bool                  | true                                         | Set true to enable and false to disable clustering.                                                                                                                                                                             |
@@ -115,7 +115,7 @@ const App = () => {
   return (
     <>
       <MapView
-        ref={mapRef}
+        mapRef={mapRef}
         initialRegion={INITIAL_REGION}
         style={{ flex: 1 }}
       />
