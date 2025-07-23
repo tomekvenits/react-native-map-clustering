@@ -115,7 +115,7 @@ const App = () => {
   return (
     <>
       <MapView
-        ref={mapRef}
+        mapRef={mapRef}
         initialRegion={INITIAL_REGION}
         style={{ flex: 1 }}
       />
